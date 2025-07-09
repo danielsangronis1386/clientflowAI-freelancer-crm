@@ -17,7 +17,7 @@ const noteSchema = new mongoose.Schema ({
     },
 
     //Link the note to the user who created it for security 
-    Owner:{
+    owner:{
         type: mongoose.Schema.Types.ObjectId, 
         ref: "User",
         required: true, 
@@ -26,4 +26,4 @@ const noteSchema = new mongoose.Schema ({
 
 // Export the Note model
 
-module.exports = mongoose.model("note", noteSchema)
+module.exports = mongoose.model("Note", noteSchema)
