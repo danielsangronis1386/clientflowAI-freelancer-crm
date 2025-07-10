@@ -43,5 +43,9 @@ const show = async (req, res) => {
         console.error(error);
         res.redirect("/clients")
     }
-}
+};
+
+// Export all controller functions
+
+
 
