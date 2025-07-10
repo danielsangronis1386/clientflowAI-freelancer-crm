@@ -16,6 +16,12 @@ const index = async (req, res) => {
     }
 };
 
+// Show form to create a new client 
+const newClient = (req, res) => {
+    res.render("clients/new");
+
+};
+
 //Create a new client in the database
 
 const create = async (req, res) => {
@@ -46,6 +52,14 @@ const show = async (req, res) => {
 };
 
 // Export all controller functions
+module.exports = {
+    index, 
+    new: newClient, 
+    create, 
+    show, 
+    
+
+};
 
 
 
