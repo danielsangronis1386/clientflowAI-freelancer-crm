@@ -1,3 +1,4 @@
+// Enviroment & Dependencies
 const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
@@ -7,15 +8,24 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
 
+//Controllers
+
 const authController = require('./controllers/auth.js');
+
+const clientRoutes = require ("./routes/clients");
+
+//Port Setup
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
+//Data Connection
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
+
+//Middleware
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
@@ -28,12 +38,15 @@ app.use(
   })
 );
 
+//Routes
+
+// Home Page route 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
     user: req.session.user,
   });
 });
-
+// Test protected route
 app.get('/vip-lounge', (req, res) => {
   if (req.session.user) {
     res.send(`Welcome to the party ${req.session.user.username}.`);
@@ -41,8 +54,9 @@ app.get('/vip-lounge', (req, res) => {
     res.send('Sorry, no guests allowed.');
   }
 });
-
+// Auth routes
 app.use('/auth', authController);
+app.use("/clients", clientRoutes)
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

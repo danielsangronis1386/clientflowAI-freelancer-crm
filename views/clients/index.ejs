@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Clients</title>
+</head>
+<body>
+  <h1>My Clients</h1>
+
+  <a href="/clients/new">Add New Client</a>
+
+  <% if (clients.length === 0) { %>
+    <p>You have no clients yet. Start by adding one.</p>
+  <% } else { %>
+    <ul>
+      <% clients.forEach(client => { %>
+        <li>
+          <a href="/clients/<%= client._id %>"><%= client.name %></a><br>
+          <span><%= client.email %></span> | 
+          <span><%= client.phone %></span><br>
+          <span>Category: <%= client.category %></span>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+</body>
+</html>
