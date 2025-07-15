@@ -27,10 +27,10 @@ router.get("/:id", isAuthenticated, clientsController.show);
 router.get("/:id/edit", isAuthenticated, clientsController.edit); 
 
 // Update Client
-router.put("/:id/edit", isAuthenticated, clientsController.update);
+router.put("/:id/", isAuthenticated, clientsController.update);
 
 // Delete Client
-router.delete("/:id/edit", isAuthenticated, clientsController.delete)
+router.delete("/:id/", isAuthenticated, clientsController.delete)
 
 module.exports = router;
 

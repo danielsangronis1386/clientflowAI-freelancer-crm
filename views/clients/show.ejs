@@ -18,10 +18,16 @@
   <% if (client.notes.length > 0) { %>
     <ul>
       <% client.notes.forEach(note => { %>
-        <li>
-          <p><%= note.content %></p>
-          <small>Created: <%= note.createdAt.toLocaleString() %></small>
-        </li>
+       <li>
+  <p><%= note.content %></p>
+  <small>Created: <%= note.createdAt.toLocaleString() %></small>
+  <br>
+  <a href="/notes/<%= note._id %>/edit">Edit</a>
+  <form action="/notes/<%= note._id %>?_method=DELETE" method="POST" style="display:inline;">
+    <button type="submit" style="color: red;">Delete</button>
+  </form>
+</li>
+
       <% }) %>
     </ul>
   <% } else { %>
