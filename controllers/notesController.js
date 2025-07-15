@@ -52,4 +52,5 @@ const deleteNote = async (req, res) => {
 
 module.exports = {
     create,
+    delete: deleteNote,
 };
