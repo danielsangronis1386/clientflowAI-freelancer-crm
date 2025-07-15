@@ -15,6 +15,8 @@ const authController = require('./controllers/auth.js');
 
 const clientRoutes = require ("./routes/clients");
 
+const noteRoutes = require("./routes/notes")
+
 //Port Setup
 
 const port = process.env.PORT ? process.env.PORT : '3000';
@@ -57,7 +59,8 @@ app.get('/vip-lounge', (req, res) => {
 });
 // Auth routes
 app.use('/auth', authController);
-app.use("/clients", clientRoutes)
+app.use("/clients", clientRoutes);
+app.use("/notes", noteRouters);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
