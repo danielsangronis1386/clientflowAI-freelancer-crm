@@ -1,6 +1,6 @@
 // controllers/notesControllers.js
 const Note = require("../models/note");
-const Client = require ("../models/clients");
+const Client = require ("../models/client");
 const note = require("../models/note");
 
 //Creat a new note and link it to the client 
