@@ -24,7 +24,34 @@ const create = async (req, res) => {
     res.redirect(`/clients/${req.body.clientId}`);
   }
 };
-
+//Edit Notes 
+const edit = async (req, res) => {
+try{
+    const note = await Note.findById(req.params.id);
+    if(!note || note.owner.toString() !== req.session.user._id.toString()) {
+        return res.redirect("/clients");
+    }
+    res.render("notes/edit", { note });
+} catch (err) {
+    console.error(err);
+    res.redirect("/clients");
+}
+};
+//Save edited note 
+const update = async (req, res) => {
+    try {
+        const note = await Note.findById(req.params.id);
+        if(!note || note.owner.toString() !== req.session.user._id.toString()) {
+             return res.redirect("/clients");
+    }
+    note.content = req.body.content;
+    await note.save();
+    res.redirect(`/clients/${note.client}`);
+} catch (err) {
+    console.error(err);
+    res.redirect("/clients")
+}
+};
 //Delete the Note 
 
 // Delete the note if the use is the owner 
@@ -52,5 +79,7 @@ const deleteNote = async (req, res) => {
 
 module.exports = {
     create,
+    edit,
+    update,
     delete: deleteNote,
 };
