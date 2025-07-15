@@ -14,4 +14,4 @@ function isAuthenticated(req, res, next) {
 
 router.post("/", isAuthenticated, notesController.create);
 
-module.exports = routers;
+module.exports = router;
