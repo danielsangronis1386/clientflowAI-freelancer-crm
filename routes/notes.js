@@ -23,6 +23,6 @@ router.get("/:id/edit", isAuthenticated, notesController.edit);
 router.put("/:id", isAuthenticated, notesController.update)
 
 //Delete Notes
-router.delete("/:id", isAuthenticated, notesController.deleted);
+router.delete("/:id", isAuthenticated, notesController.delete);
 
 module.exports = router;
