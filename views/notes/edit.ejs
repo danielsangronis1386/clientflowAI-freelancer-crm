@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Note</title>
+</head>
+<body>
+
+  <h1>Edit Note</h1>
+
+  <form action="/notes/<%= note._id %>?_method=PUT" method="POST">
+    <textarea name="content" rows="5" cols="50" required><%= note.content %></textarea>
+    <input type="hidden" name="clientId" value="<%= note.client %>">
+    <br><br>
+    <button type="submit">Update Note</button>
+  </form>
+
+  <br>
+  <a href="/clients/<%= note.client %>">← Back to Client</a>
+
+</body>
+</html>

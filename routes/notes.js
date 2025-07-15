@@ -14,4 +14,7 @@ function isAuthenticated(req, res, next) {
 
 router.post("/", isAuthenticated, notesController.create);
 
+//Delete Notes
+router.delete("/:id", isAuthenticated, notesController.deleted);
+
 module.exports = router;
