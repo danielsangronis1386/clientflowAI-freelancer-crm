@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Client</title>
+</head>
+<body>
+
+  <h1>Add a New Client</h1>
+
+  <form action="/clients" method="POST">
+    <label for="name">Client Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="text" id="phone" name="phone"><br><br>
+
+    <label for="category">Category:</label><br>
+    <select id="category" name="category">
+      <option value="Ecommerce">Ecommerce</option>
+      <option value="Editorial" selected>Editorial</option>
+      <option value="Campaign">Campaign</option>
+      <option value="Wedding">Wedding</option>
+      <option value="VIP Artist">VIP Artist</option>
+    </select><br><br>
+
+    <button type="submit">Create Client</button>
+  </form>
+
+  <br>
+  <a href="/clients">Back to Clients List</a>
+
+</body>
+</html>
