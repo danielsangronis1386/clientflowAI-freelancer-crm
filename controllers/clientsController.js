@@ -50,13 +50,53 @@ const show = async (req, res) => {
         res.redirect("/clients")
     }
 };
+// Show form to edit a client
+const edit = async (req, res) => {
+    try {
+        const client = await Client.findOne ({ _id: req.params.id, owner: req.session.user._id})
+        res.render("clients/edit", { client});
+
+    } catch (error) {
+        console.error(error);
+        res.redirect("/clients");
+    }
+}
+//update a client in the database
+const update = async (req, res) => {
+    try {
+        await Client.findOneAndUpdate(
+            { _id: req.params.id, owner: req.session.user._id},
+        req.body, 
+            { new: true }
+        );
+        res.redirect(`/clients/${req.params.id}`);
+    } catch (error) {
+        console.error(error);
+        res.redirect("/clients")
+    }
+};
+
+//Delete a client
+
+const deleteClient = async (req, res) => {
+    try {
+        await Client.deleteOne({_id: req.params.id, owner: req.session.user._id});
+        res.redirect("/clients");
+    } catch (error) {
+        console.error(error);
+        res.redirect("/clients")
+    }
+};
 
 // Export all controller functions
 module.exports = {
     index, 
     new: newClient, 
     create, 
-    show, 
+    show,
+    edit,
+    update,
+    delete: deleteClient 
     
 
 };

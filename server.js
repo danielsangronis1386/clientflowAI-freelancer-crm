@@ -60,7 +60,7 @@ app.get('/vip-lounge', (req, res) => {
 // Auth routes
 app.use('/auth', authController);
 app.use("/clients", clientRoutes);
-app.use("/notes", noteRouters);
+app.use("/notes", noteRoutes);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
