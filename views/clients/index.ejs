@@ -20,6 +20,12 @@
       <a href="/clients/<%= client._id %>"><strong><%= client.name %></strong></a><br>
       <%= client.email %> | <%= client.phone %><br>
       Category: <%= client.category %>
+      <a href="/clients/<%= client._id %>/edit">Edit</a>
+
+<form action="/clients/<%= client._id %>?_method=DELETE" method="POST" style="display:inline;">
+  <button type="submit" onclick="return confirm('Are you sure you want to delete this client?')">Delete</button>
+</form>
+
     </li>
     <br>
   <% }) %>
