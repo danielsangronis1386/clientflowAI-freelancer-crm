@@ -13,16 +13,18 @@
   <% if (clients.length === 0) { %>
     <p>You have no clients yet. Start by adding one.</p>
   <% } else { %>
+    
     <ul>
-      <% clients.forEach(client => { %>
-        <li>
-          <a href="/clients/<%= client._id %>"><%= client.name %></a><br>
-          <span><%= client.email %></span> | 
-          <span><%= client.phone %></span><br>
-          <span>Category: <%= client.category %></span>
-        </li>
-      <% }) %>
-    </ul>
+  <% clients.forEach(client => { %>
+    <li>
+      <a href="/clients/<%= client._id %>"><strong><%= client.name %></strong></a><br>
+      <%= client.email %> | <%= client.phone %><br>
+      Category: <%= client.category %>
+    </li>
+    <br>
+  <% }) %>
+</ul>
+
   <% } %>
 
 </body>

@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const app = express();
+app.set('view engine', 'ejs'); 
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
