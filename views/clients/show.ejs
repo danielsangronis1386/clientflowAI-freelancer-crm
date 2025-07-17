@@ -5,8 +5,10 @@
   <title><%= client.name %> – Client Details</title>
 </head>
 <body>
+  <div class="client-show-container">
 
   <h1><%= client.name %></h1>
+   <link rel="stylesheet" href="/stylesheets/client-show.css" />
 
   <p><strong>Email:</strong> <%= client.email || 'N/A' %></p>
   <p><strong>Phone:</strong> <%= client.phone || 'N/A' %></p>

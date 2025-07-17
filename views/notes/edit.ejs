@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <title>Edit Note</title>
+  <link rel="stylesheet" href="/stylesheets/note-edit.css" />
+
 </head>
 <body>
+  <div class="note-edit-container">
+    <h1>Edit Note</h1>
 
-  <h1>Edit Note</h1>
+    <form action="/notes/<%= note._id %>?_method=PUT" method="POST">
+      <textarea name="content" rows="5" cols="50" required><%= note.content %></textarea>
+      <input type="hidden" name="clientId" value="<%= note.client %>">
+      <br><br>
+      <button type="submit">Update Note</button>
+    </form>
 
-  <form action="/notes/<%= note._id %>?_method=PUT" method="POST">
-    <textarea name="content" rows="5" cols="50" required><%= note.content %></textarea>
-    <input type="hidden" name="clientId" value="<%= note.client %>">
-    <br><br>
-    <button type="submit">Update Note</button>
-  </form>
-
-  <br>
-  <a href="/clients/<%= note.client %>">← Back to Client</a>
-
+    <br>
+    <a href="/clients/<%= note.client %>">← Back to Client</a>
+  </div>
 </body>
+
 </html>

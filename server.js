@@ -3,6 +3,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const app = express();
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs'); 
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
@@ -49,14 +51,7 @@ app.get('/', (req, res) => {
     user: req.session.user,
   });
 });
-// Test protected route
-app.get('/vip-lounge', (req, res) => {
-  if (req.session.user) {
-    res.send(`Welcome to the party ${req.session.user.username}.`);
-  } else {
-    res.send('Sorry, no guests allowed.');
-  }
-});
+
 // Auth routes
 app.use('/auth', authController);
 app.use("/clients", clientRoutes);

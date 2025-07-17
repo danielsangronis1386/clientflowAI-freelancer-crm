@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Edit Client</title>
+  <link rel="stylesheet" href="/stylesheets/client-edit.css">
+
 </head>
 <body>
-
+<div class="client-edit-container"></div>
   <h1>Edit Client</h1>
 
   <form action="/clients/<%= client._id %>?_method=PUT" method="POST">
