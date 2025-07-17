@@ -1,41 +1,125 @@
-Project Title: ClientFlowAI – A MEN Stack Client Management App
+# ClientFlowAI – A MEN Stack Client Management App
 
-Overview:
-ClientFlowAI is a full-stack client management tool built with the MEN (MongoDB, Express, Node.js) stack using EJS as the templating engine. The app allows users to create, view, edit, and delete clients, as well as attach notes to each client. It includes user authentication, session handling, and a clean UI with responsive styling.
+## Overview
+ClientFlowAI is a full-stack client management tool built using the MEN stack (MongoDB, Express.js, Node.js) with EJS for templating. It allows authenticated users to create, view, edit, and delete clients and their associated notes.
 
-Features:
+---
 
-User authentication: Sign-up, Sign-in, Sign-out
+## Install dependencies:
+```bash
+npm install
+```
 
-Create, Read, Update, Delete (CRUD) for clients
+---
 
-CRUD for client notes
+## Create a `.env` file in the root directory:
+```env
+PORT=3000
+MONGODB_URI=your-mongodb-uri
+SESSION_SECRET=your-secret-string
+```
 
-Styled views using custom CSS and Flexbox
+---
 
-Separate views for index, show, new, and edit clients
+## Run the app locally:
+```bash
+npm run dev
+```
+App will run at: `http://localhost:3000`
 
-Session management with express-session
+---
 
-Middleware: express, method-override, dotenv, morgan, bcrypt
+## Scripts
+```json
+"scripts": {
+  "start": "node server.js",
+  "dev": "nodemon server.js -e css,ejs,js,json"
+}
+```
 
-Technologies Used:
+---
 
-MongoDB
+## Folder Structure
+```
+├── controllers/
+│   ├── auth.js
+│   ├── clients.js
+│   └── notes.js
+├── models/
+│   ├── user.js
+│   ├── client.js
+│   └── note.js
+├── routes/
+│   ├── authRoutes.js
+│   ├── clientRoutes.js
+│   └── noteRoutes.js
+├── views/
+│   ├── auth/
+│   │   ├── sign-in.ejs
+│   │   └── sign-up.ejs
+│   ├── clients/
+│   │   ├── index.ejs
+│   │   ├── new.ejs
+│   │   ├── show.ejs
+│   │   └── edit.ejs
+│   ├── notes/
+│   │   └── edit.ejs
+│   └── home.ejs
+├── public/
+│   └── stylesheets/
+│       ├── style.css
+│       ├── client-index.css
+│       ├── client-show.css
+│       ├── client-form.css
+│       └── auth-sign.css
+├── .env
+├── package.json
+└── server.js
+```
 
-Mongoose
+---
 
-Express
+## Deployment (Heroku)
 
-Node.js
+### Ensure your `package.json` has the correct start script:
+```json
+"start": "node server.js"
+```
 
-EJS
+### Commit your code:
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
 
-CSS
+### Deploy to Heroku:
+```bash
+heroku create clientflowai
+git push heroku main
+heroku open
+```
 
-Git and GitHub
+---
 
-Heroku for deployment
+## Known Issues / Stretch Goals
+
+- ❌ Navbar was attempted but not rendered correctly. Removed for now.
+- ❌ Flash messages not implemented (login errors, signup success, etc.)
+- ❌ No mobile responsiveness or media queries
+- ❌ No user profile management
+- ❌ No password reset feature
+- ❌ Cannot sort or filter clients by category/date
+- ❌ No archives or favorite notes functionality
+- ❌ No success/error UI validation for forms
+
+---
+
+## Credits
+Developed by Daniel Sangronis  
+General Assembly – Software Engineering Bootcamp  
+Unit 2 Full-Stack Project
+
 
 How to Use:
 
