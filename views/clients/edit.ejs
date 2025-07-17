@@ -7,26 +7,28 @@
 
 </head>
 <body>
+  <%- include('../partials/_navbar.ejs') %>
+
 <div class="client-edit-container"></div>
   <h1>Edit Client</h1>
 
-  <form action="/clients/<%= client._id %>?_method=PUT" method="POST">
+  <form action="/clients/<%= clientData._id %>?_method=PUT" method="POST">
     <label for="name">Client Name:</label><br>
-    <input type="text" id="name" name="name" value="<%= client.name %>" required><br><br>
+    <input type="text" id="name" name="name" value="<%= clientData.name %>" required><br><br>
 
     <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" value="<%= client.email %>"><br><br>
+    <input type="email" id="email" name="email" value="<%= clienData.email %>"><br><br>
 
     <label for="phone">Phone:</label><br>
-    <input type="text" id="phone" name="phone" value="<%= client.phone %>"><br><br>
+    <input type="text" id="phone" name="phone" value="<%= clientData.phone %>"><br><br>
 
     <label for="category">Category:</label><br>
     <select id="category" name="category">
-      <option value="Ecommerce" <%= client.category === "Ecommerce" ? "selected" : "" %>>Ecommerce</option>
-      <option value="Editorial" <%= client.category === "Editorial" ? "selected" : "" %>>Editorial</option>
-      <option value="Campaign" <%= client.category === "Campaign" ? "selected" : "" %>>Campaign</option>
-      <option value="Wedding" <%= client.category === "Wedding" ? "selected" : "" %>>Wedding</option>
-      <option value="VIP Artist" <%= client.category === "VIP Artist" ? "selected" : "" %>>VIP Artist</option>
+      <option value="Ecommerce" <%= clientData.category === "Ecommerce" ? "selected" : "" %>>Ecommerce</option>
+      <option value="Editorial" <%= clientData.category === "Editorial" ? "selected" : "" %>>Editorial</option>
+      <option value="Campaign" <%= clientData.category === "Campaign" ? "selected" : "" %>>Campaign</option>
+      <option value="Wedding" <%= clientData.category === "Wedding" ? "selected" : "" %>>Wedding</option>
+      <option value="VIP Artist" <%= clientData.category === "VIP Artist" ? "selected" : "" %>>VIP Artist</option>
     </select><br><br>
 
     <button type="submit">Update Client</button>
@@ -34,7 +36,7 @@
 
   <br>
 
-  <form action="/clients/<%= client._id %>?_method=DELETE" method="POST">
+  <form action="/clients/<%= clientData._id %>?_method=DELETE" method="POST">
     <button type="submit" style="color: red;">Delete Client</button>
   </form>
 

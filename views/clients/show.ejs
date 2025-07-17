@@ -2,24 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><%= client.name %> – Client Details</title>
+  <title><%= clientData.name %> – Client Details</title>
 </head>
 <body>
+  <%- include('../partials/_navbar.ejs') %>
+
   <div class="client-show-container">
 
-  <h1><%= client.name %></h1>
+  <h1><%= clientData.name %></h1>
    <link rel="stylesheet" href="/stylesheets/client-show.css" />
 
-  <p><strong>Email:</strong> <%= client.email || 'N/A' %></p>
-  <p><strong>Phone:</strong> <%= client.phone || 'N/A' %></p>
-  <p><strong>Category:</strong> <%= client.category %></p>
+  <p><strong>Email:</strong> <%= clientData.email || 'N/A' %></p>
+  <p><strong>Phone:</strong> <%= clientData.phone || 'N/A' %></p>
+  <p><strong>Category:</strong> <%= clientData.category %></p>
 
   <hr>
 
   <h2>Notes</h2>
-  <% if (client.notes.length > 0) { %>
+  <% if (clientData.notes.length > 0) { %>
     <ul>
-  <% client.notes.forEach(note => { %>
+  <% clientData.notes.forEach(note => { %>
     <li>
       <p><%= note.content %></p>
       <small>Created: <%= note.createdAt.toLocaleString() %></small>
@@ -40,7 +42,7 @@
 <h3>Add a Note</h3>
 <form action="/notes" method="POST">
   <textarea name="content" rows="4" cols="50" placeholder="Write your note here..." required></textarea>
-  <input type="hidden" name="clientId" value="<%= client._id %>">
+  <input type="hidden" name="clientId" value="<%= clientData._id %>">
   <br>
   <button type="submit">Add Note</button>
 </form>

@@ -8,16 +8,17 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(120deg, #c2f0f7, #fceabb); /* beach + sun vibe */
+  background: linear-gradient(120deg, #c2f0f7, #fceabb);
   color: #1c2e5b;
   min-height: 100vh;
+  margin: 0;
   padding: 40px 20px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
 }
 
 .show-container {
+   margin-top: 60px;
   background-color: white;
   padding: 40px;
   border-radius: 20px;

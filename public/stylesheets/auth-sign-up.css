@@ -1,62 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #c2e9fb, #f9f9f9);
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #c2e9fb, #a1c4fd);
-  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  z-index: 1000;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* New wrapper to center the form */
+.page-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-top: 60px; /* Make room for the navbar */
 }
 
-.auth-container {
-  background-color: #fff;
+.signin-container {
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 360px;
 }
 
 h1 {
+  text-align: center;
   color: #1c2e5b;
-  margin-bottom: 24px;
-  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-  display: block;
-  margin: 12px 0 6px;
-  text-align: left;
-  color: #333;
+  margin-bottom: 5px;
   font-weight: 600;
+  color: #333;
 }
 
 input {
-  width: 100%;
   padding: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  font-size: 1em;
 }
 
 button {
-  width: 100%;
-  padding: 12px;
-  background-color: #4b598e;
+  background-color: #1c2e5b;
   color: white;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-size: 1em;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #1c2e5b;
+  background-color: #294c8c;
 }

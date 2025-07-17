@@ -42,9 +42,9 @@ const create = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        const client = await Client.findOne ({ _id: req.params.id, owner: req.session.user._id})
+        const clientData = await Client.findOne ({ _id: req.params.id, owner: req.session.user._id})
         .populate("notes");
-        res.render("clients/show", {client});
+        res.render("clients/show", {clientData});
     } catch (error) {
         console.error(error);
         res.redirect("/clients")
@@ -53,8 +53,8 @@ const show = async (req, res) => {
 // Show form to edit a client
 const edit = async (req, res) => {
     try {
-        const client = await Client.findOne ({ _id: req.params.id, owner: req.session.user._id})
-        res.render("clients/edit", { client});
+        const clientData = await Client.findOne ({ _id: req.params.id, owner: req.session.user._id})
+        res.render("clients/edit", { clientData});
 
     } catch (error) {
         console.error(error);
